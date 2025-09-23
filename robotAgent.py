@@ -5,9 +5,13 @@ import os
 from models.bot_tools import (
     get_simplified_dom, time_sleep, open_website,
     run_by_js, find_element_and_send_keys, find_element_and_click,
+    get_test_case
 )
 from models.cmd_tools import (
-    run_command
+    run_command, cat_command
+)
+from models.ai_tool import (
+    get_ai_content
 )
 from dotenv import load_dotenv
 from system.prompt.robot_prompt import system_prompt
@@ -20,7 +24,8 @@ if __name__ == "__main__":
         open_website, get_simplified_dom,
         find_element_and_send_keys, find_element_and_click,
         time_sleep, run_by_js,
-        run_command
+        run_command, cat_command,
+        get_ai_content, get_test_case
     ]
 
     llm = ChatGoogleGenerativeAI(
@@ -44,7 +49,7 @@ if __name__ == "__main__":
     )
 
     print(
-        "你好！我是您的測試案例生成助理。請告訴我您想做什麼？(輸入 exit 退出)"
+        "你好！我是您的開發助理。請告訴我您想做什麼？(輸入 exit 退出)"
     )
 
     generated_yaml_steps = []

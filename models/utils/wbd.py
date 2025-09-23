@@ -9,7 +9,7 @@ class WebDriverManager(object):
 
     def __init__(self):
         print(os.getcwd())
-        self.exec_path = f"{os.getcwd()}/msedgedriver"
+        self.exec_path = f"{os.getcwd()}/models/utils/msedgedriver"
 
     def get_driver(self):
 
