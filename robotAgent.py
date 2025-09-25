@@ -55,14 +55,17 @@ if __name__ == "__main__":
     generated_yaml_steps = []
 
     while True:
-        user_input = input("指令 > ")
-        if user_input.lower() == 'exit':
-            break
+        try:
+            user_input = input("指令 > ")
+            if user_input.lower() == 'exit':
+                break
 
-        response = agent_executor.invoke({
-            "input": user_input,
-            "chat_history": []
-        })
+            response = agent_executor.invoke({
+                "input": user_input,
+                "chat_history": []
+            })
 
-        print("\n助理回應:")
-        print(response['output'])
+            print("\n助理回應:")
+            print(response['output'])
+        except Exception as e:
+            print(e)
